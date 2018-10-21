@@ -8,6 +8,7 @@ import 'vuetify/dist/vuetify.min.css'
 import * as firebase from 'firebase'
 import { store } from './store'
 import AlertCmp from './components/Shared/Alert.vue'
+
 Vue.use(Vuetify)
 Vue.config.productionTip = false
 

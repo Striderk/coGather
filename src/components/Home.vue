@@ -16,6 +16,7 @@
                     v-for="(meetup,i) in meetups"
                     :key="meetup.id"
                     :src="meetup.imageUrl"
+                    @click="onLoadMeetup(meetup.id)"
                     >
                     <div class = "title">
                         {{ meetup.title }}
@@ -35,14 +36,16 @@
 
 <script>
     export default {
-    data () {
-        return {
-          meetups: [
-                { imageUrl: 'http://utown.nus.edu.sg/assets/Uploads/image-about-erc2.jpg', id: 'utown', title: 'Gym group in utown' },
-                { imageUrl: 'http://news.nus.edu.sg/sites/default/files/styles/thumbnail_960x540/public/resources/highlights/2017//2017-02/soc_curriculum/soc_1.jpg?itok=kBFRZ8Zv', id: 'soc', title: 'Algorithm study group in soc' }
-            ]
-        }
-    }
+    computed:{
+      meetups () {
+        return this.$store.getters.featuredMeetups
+      }
+    },
+      methods: {
+      onLoadMeetup (id) {
+        this.$router.push('/meetups/'+ id)
+      }
+      }
     }
 </script>
 
