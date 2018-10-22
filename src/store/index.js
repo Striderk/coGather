@@ -7,8 +7,8 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
   state: {
     loadedMeetups: [
-      { imageUrl: 'http://utown.nus.edu.sg/assets/Uploads/image-about-erc2.jpg', id: 'utown', title: 'Gym group in utown', date: '2018-10-25' },
-      { imageUrl: 'http://news.nus.edu.sg/sites/default/files/styles/thumbnail_960x540/public/resources/highlights/2017//2017-02/soc_curriculum/soc_1.jpg?itok=kBFRZ8Zv', id: 'soc', title: 'Algorithm study group in soc', date: '2018-10-26' }
+      { imageUrl: 'http://utown.nus.edu.sg/assets/Uploads/image-about-erc2.jpg', id: 'utown', title: 'Gym group in utown', date: '2018-10-25', venue: 'utown gym' , organizer: 'Mark', description: 'exercise everyday'},
+      { imageUrl: 'http://news.nus.edu.sg/sites/default/files/styles/thumbnail_960x540/public/resources/highlights/2017//2017-02/soc_curriculum/soc_1.jpg?itok=kBFRZ8Zv', id: 'soc', title: 'Algorithm study group in soc', date: '2018-10-26' , venue: 'com1-1-23', organizer:'Will', description:'love coding'}
     ],
     user: {
       id: 'adlafakd',
