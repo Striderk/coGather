@@ -20,6 +20,9 @@
             <div class="info--text"> Organizer: {{ meetup.organizer }} </div>
             <div>Details: {{meetup.description}}</div>
           </v-card-text>
+          <template v-if = "true">
+            <app-memory-dialog></app-memory-dialog>
+          </template>
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn class="primary">Register</v-btn>
