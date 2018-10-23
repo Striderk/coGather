@@ -22,6 +22,9 @@ export const store = new Vuex.Store({
     },
     clearError (state) {
       state.error = null
+    },
+    createMeetup (state, payload){
+      state.loadedMeetups.push(payload)
     }
   },
   actions: {
@@ -71,6 +74,17 @@ export const store = new Vuex.Store({
     },
     clearError ({ commit }) {
       commit('clearError')
+    },
+    createMeetup ({commit}, payload){
+      const meetup = {
+        title: payload.title,
+        location: payload.location,
+        imageUrl: payload.imageUrl,
+        description: payload.description,
+        date : payload.date
+      }
+      //Reach out to firebase and store it
+      commit('createMeetup',meetup)
     }
   },
   getters: {
