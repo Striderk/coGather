@@ -11,7 +11,7 @@ import AlertCmp from './components/Shared/Alert.vue'
 import EditMeetupDialog from './components/InterestGroup/Edit/EditMeetupDetailsDialog'
 import MemoryDialog from './components/InterestGroup/Edit/MemoryDialog'
 import DateFilter from './filter/date'
-
+import RegisterDialog from './components/InterestGroup/Registration/RegisterDialog'
 
 Vue.use(Vuetify)
 Vue.config.productionTip = false
@@ -21,6 +21,7 @@ Vue.filter('date', DateFilter)
 Vue.component('app-alert', AlertCmp)
 Vue.component('app-edit-meetup-dialog', EditMeetupDialog)
 Vue.component('app-memory-dialog', MemoryDialog)
+Vue.component('app-meetup-register-dialog', RegisterDialog)
 
 new Vue({
   el: '#app',
