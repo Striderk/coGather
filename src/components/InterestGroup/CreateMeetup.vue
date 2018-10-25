@@ -8,7 +8,7 @@
     <v-layout row>
       <v-flex xs12>
         <form @submit.prevent="onCreateMeetup">
-          <v-loayout row>
+          <v-layout row>
             <v-flex xs12 sm6 offset-sm3>
               <v-text-field
                 name="title"
@@ -17,7 +17,7 @@
                 v-model="title"
                 required></v-text-field>
             </v-flex>
-        </v-loayout>
+        </v-layout>
         <v-loayout row>
           <v-flex xs12 sm6 offset-sm3>
             <v-text-field
