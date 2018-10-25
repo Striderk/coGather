@@ -7,8 +7,6 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
   state: {
     loadedMeetups: [
-      { imageUrl: 'http://utown.nus.edu.sg/assets/Uploads/image-about-erc2.jpg', id: 'utown', title: 'Gym group in utown', date: '2018-10-25', venue: 'utown gym' , organizer: 'Mark', description: 'exercise everyday'},
-      { imageUrl: 'http://news.nus.edu.sg/sites/default/files/styles/thumbnail_960x540/public/resources/highlights/2017//2017-02/soc_curriculum/soc_1.jpg?itok=kBFRZ8Zv', id: 'soc', title: 'Algorithm study group in soc', date: '2018-10-26' , venue: 'com1-1-23', organizer:'Will', description:'love coding'}
     ],
     user: {
       id: 'adlafakd',
@@ -32,6 +30,24 @@ export const store = new Vuex.Store({
     },
     createMeetup (state, payload){
       state.loadedMeetups.push(payload)
+    },
+    setLoadedMeetups(state, payload)
+    {
+      state.loadedMeetups = payload
+    },
+    updateMeetup (state, payload) {
+      const meetup = state.loadedMeetups.find(meetup => {
+        return meetup.id === payload.id
+      })
+      if (payload.description) {
+        meetup.description = payload.description
+      }
+      if (payload.date) {
+        meetup.date = payload.date
+      }
+      if (payload.location) {
+        meetup.location = payload.location
+      }
     }
   },
   actions: {
@@ -79,26 +95,84 @@ export const store = new Vuex.Store({
           }
         )
     },
-    clearError ({ commit }) {
+    clearError ({commit}) {
       commit('clearError')
     },
-    createMeetup ({commit}, payload){
+    createMeetup ({commit}, payload) {
       const meetup = {
         title: payload.title,
         location: payload.location,
         imageUrl: payload.imageUrl,
         description: payload.description,
-        date : payload.date
+        date: payload.date.toISOString()
       }
+      firebase.database().ref('meetups').push(meetup)
+        .then((data) => {
+          const key = data.key
+          commit('createMeetup', {
+            ...meetup,
+            id: key
+          })
+        })
+        .catch((error) => {
+          console.log(error)
+        })
       //Reach out to firebase and store it
-      commit('createMeetup',meetup)
+    },
+    loadMeetups ({commit}) {
+      commit ('setLoading', true)
+      firebase.database().ref('meetups').once('value')
+        .then((data) => {
+          const meetups = []
+          const obj = data.val()
+          for (let key in obj) {
+            meetups.push({
+              id: key,
+              title: obj[key].title,
+              location: obj[key].location,
+              description: obj[key].description,
+              imageUrl: obj[key].imageUrl,
+              date: obj[key].date
+            })
+          }
+          console.log(data)
+          commit('setLoadedMeetups', meetups)
+          commit ('setLoading', false)
+          }
+        )
+        .catch (
+          (error) => {
+            console.log(error)
+            commit ('setLoading', true)
+          }
+        )
+    },
+    updateMeetup({commit}, payload) {
+      commit('setLoading', true)
+      const updateObj = {}
+      if (payload.description) {
+        updateObj.description = payload.description
+      }
+      if (payload.date) {
+        updateObj.date = payload.date
+      }
+      if (payload.location) {
+        updateObj.location = payload.location
+      }
+      firebase.database().ref ('meetups').child(payload.id).update(updateObj)
+        .then(() => {
+          commit('setLoading', false)
+          commit('updateMeetup', payload)
+        })
+        .catch((error) => {
+          console.log(error)
+          commit('setLoading', false)
+        })
     }
   },
   getters: {
     loadedMeetups (state) {
-      return state.loadedMeetups.sort((meetupA, meetupB) => {
-        return meetupA.date > meetupB.date
-      })
+       return state.loadedMeetups
     },
     featuredMeetups (state, getters) {
       return getters.loadedMeetups.slice(0, 5)
