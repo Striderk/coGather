@@ -36,6 +36,11 @@ new Vue({
       projectId: 'interestgroup-5005ace',
       storageBucket: 'interestgroup-5005ace.appspot.com'
     })
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.$store.dispatch('fetchUserData')
+      }
+    })
     this.$store.dispatch('loadMeetups')
   }
 })
