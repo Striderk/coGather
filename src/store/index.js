@@ -144,6 +144,14 @@ export const store = new Vuex.Store({
     clearError ({commit}) {
       commit('clearError')
     },
+    fetchUserData ({commit, getters}){
+      commit('setLoading', true)
+      firebase.database().ref('/users/'+getters.user.id + '/registrations/').once('value')
+      .then(data => {
+        const values = data.val()
+        console.log(values)
+      })
+    },
     createMeetup ({commit}, payload) {
       const meetup = {
         title: payload.title,

@@ -15,21 +15,21 @@
           <v-divider></v-divider>
             <v-layout row wrap>
               <v-flex xs12>
-                <v-card-text>As simple as one click whenever you change your mind.</v-card-text>
+                <v-card-text>You can change your mind until 2 days before the Meetup.</v-card-text>
               </v-flex>
             </v-layout>
           <v-divider></v-divider>
             <v-layout row wrap>
               <v-flex xs12>
-                <v-card-actions>
-                  <v-btn 
-                    class="red--text darken-1" 
-                    flat
-                    @click="registerDialog = false">Cancel</v-btn>
+                <v-card-actions>                  
                   <v-btn 
                     class="green--text darken-1" 
                     flat
                     @click="onAgree">Confirm</v-btn>
+                  <v-btn 
+                    class="red--text darken-1" 
+                    flat
+                    @click="registerDialog = false">Cancel</v-btn>
                 </v-card-actions>
               </v-flex>
             </v-layout>
