@@ -48,8 +48,6 @@ export default {
   computed: {
     menuItems() {
       let menuItems = [
-        // { icon: 'home', title: 'Home Page', link: '/' },
-
         { icon: 'face', title: 'Sign up', link: '/signup' },
         { icon: 'lock_open', title: 'Sign in', link: '/signin' }
       ]
