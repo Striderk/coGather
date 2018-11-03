@@ -30,11 +30,11 @@ new Vue({
   render: h => h(App),
   created () {
     firebase.initializeApp({
-      apiKey: 'AIzaSyB94Sf8omterbmhpaUu63LvftiqhVG7SSo',
-      authDomain: 'interestgroup-5005ace.firebaseapp.com',
-      databaseURL: 'https://interestgroup-5005ace.firebaseio.com/',
-      projectId: 'interestgroup-5005ace',
-      storageBucket: 'interestgroup-5005ace.appspot.com'
+      apiKey: 'AIzaSyDExdKqRyVDEyGfYL8ziceWV6HXw9WAB-I',
+      authDomain: 'is5003ace-final.firebaseapp.com',
+      databaseURL: 'https://is5003ace-final.firebaseio.com',
+      projectId: 'is5003ace-final',
+      storageBucket: 'is5003ace-final.appspot.com'
     })
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {

@@ -23,7 +23,7 @@
             <v-flex xs12>
                 <v-carousel>
                     <v-carousel-item
-                    v-for="(meetup,i) in meetups"
+                    v-for="meetup in meetups"
                     :key="meetup.id"
                     :src="meetup.imageUrl"
                     @click="onLoadMeetup(meetup.id)"
