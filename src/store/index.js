@@ -8,10 +8,7 @@ export const store = new Vuex.Store({
   state: {
     loadedMeetups: [
     ],
-    user: {
-      id: 'adlafakd',
-      registeredMeetups: ['utown']
-    },
+    user: null,
     loading: false,
     error: null
   },
@@ -70,7 +67,7 @@ export const store = new Vuex.Store({
       .then(data => {
         commit('setLoading', false)
         commit('registerUserForMeetup', {id: payload, fbKey: data.key})
-        })
+      })
         .catch(error => {
           console.log(error)
           commit('setLoading', false)
@@ -79,7 +76,7 @@ export const store = new Vuex.Store({
     unregisterUserFromMeetup ({commit}, payload) {
       commit('setLoading', true)
       const user = getters.user
-      if (!user.fbKeys){
+      if (!user.fbKeys) {
         return
       }
       const fbKey = user.fbKeys[payload]
