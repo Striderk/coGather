@@ -53,7 +53,7 @@
         }) >= 0
       }
     },
-    method: {
+    methods: {
       onAgree() {
         if (this.userIsRegistered){
           this.$store.dispatch('unregisterUserFromMeetup', this.meetupId)

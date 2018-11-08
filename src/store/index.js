@@ -8,7 +8,13 @@ export const store = new Vuex.Store({
   state: {
     loadedMeetups: [
     ],
-    user: null,
+    
+    //user: null,
+    
+    user: {
+      id: 'adlafakd',
+      registeredMeetups: ['utown']
+    },
     loading: false,
     error: null
   },
@@ -73,7 +79,7 @@ export const store = new Vuex.Store({
           commit('setLoading', false)
         })
     },
-    unregisterUserFromMeetup ({commit}, payload) {
+    unregisterUserFromMeetup ({commit, getters}, payload) {
       commit('setLoading', true)
       const user = getters.user
       if (!user.fbKeys) {
@@ -139,14 +145,6 @@ export const store = new Vuex.Store({
     },
     clearError ({commit}) {
       commit('clearError')
-    },
-    fetchUserData ({commit, getters}) {
-      commit('setLoading', true)
-      firebase.database().ref('/users/' + getters.user.id + '/registrations/').once('value')
-      .then(data => {
-        const values = data.val()
-        console.log(values)
-      })
     },
     createMeetup ({commit}, payload) {
       const meetup = {
