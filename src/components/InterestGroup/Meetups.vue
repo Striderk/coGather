@@ -25,7 +25,7 @@
                      <v-card-actions>
                        <v-btn flat :to=" '/meetups/' + meetup.id" class="white--text" color="blue lighten-3">
                          <v-icon left light class="white--text">arrow_forward</v-icon>
-                         View Meetup
+                         View Gather Detail
                        </v-btn>
                      </v-card-actions>
                    </v-flex>

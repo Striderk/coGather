@@ -7,7 +7,7 @@
       <v-container>
         <v-layout row wrap>
           <v-flex xs12>
-            <v-card-title>Edit Meetup</v-card-title>
+            <v-card-title>Edit Gather</v-card-title>
           </v-flex>
         </v-layout>
         <v-divider></v-divider>
@@ -27,6 +27,7 @@
                 v-model="editedDescription"
                 multi-line
                 required></v-text-field>
+
             </v-card-text>
           </v-flex>
         </v-layout>

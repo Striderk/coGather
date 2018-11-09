@@ -26,15 +26,14 @@
           </v-card-media>
           <v-card-text>
             <div class="info--text"> Time: {{ meetup.date }} </div>
+            <div><app-edit-date-dialog :meetup="meetup" ></app-edit-date-dialog></div>
             <div class="info--text"> Location: {{ meetup.location }} </div>
             <div>Details: {{meetup.description}}</div>
           </v-card-text>
-          <template v-if = "true">
-            <app-memory-dialog></app-memory-dialog>
-          </template>
+
           <v-card-actions>
             <v-spacer></v-spacer>
-            <app-meetup-register-dialog 
+            <app-meetup-register-dialog
               :meetupId="meetup.id"></app-meetup-register-dialog>
           </v-card-actions>
         </v-card>

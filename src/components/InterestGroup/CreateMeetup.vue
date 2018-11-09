@@ -2,7 +2,7 @@
 <v-container>
   <v-layout row>
     <v-flex xs12 offset-sm3>
-      <h2 class="primary--text">Create a New Meetup</h2>
+      <h2 class="primary--text">Create a New Gather</h2>
     </v-flex>
   </v-layout>
     <v-layout row>
@@ -76,7 +76,7 @@
             <v-btn
               class="primary"
               :disabled="!formIsValid"
-              type="submit">Create Meetup</v-btn>
+              type="submit">Create New Gather</v-btn>
           </v-flex>
         </v-layout>
       </form>

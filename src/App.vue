@@ -17,7 +17,7 @@
     <v-toolbar-side-icon @click.stop="sideNav = !sideNav"
     class="hidden-sm-and-up"></v-toolbar-side-icon>
     <v-toolbar-title>
-    <router-link to='/' tag="span" style="cursor: pointer">Interest Group</router-link>
+    <router-link to='/' tag="span" style="cursor: pointer">coGather!</router-link>
     </v-toolbar-title>
 
     <v-spacer></v-spacer>
@@ -53,8 +53,8 @@ export default {
       ]
       if (this.userIsAuthenticated) {
         menuItems = [
-          { icon: 'supervisor_account', title: 'View Interest Group', link: '/meetups' },
-          { icon: 'room', title: 'Organize Interest Group', link: '/meetups/new' },
+          { icon: 'supervisor_account', title: 'View Gathers', link: '/meetups' },
+          { icon: 'room', title: 'Organize New Gather', link: '/meetups/new' },
           { icon: 'person', title: 'Profile', link: '/profile' },
         ]
       }
