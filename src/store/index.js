@@ -180,6 +180,7 @@ export const store = new Vuex.Store({
               location: obj[key].location,
               description: obj[key].description,
               organiser: obj[key].organiser,
+              proficiency: obj[key].proficiency,
               participants: obj[key].participants,
               imageUrl: obj[key].imageUrl,
               date: obj[key].date
