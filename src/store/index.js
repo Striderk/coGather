@@ -8,9 +8,9 @@ export const store = new Vuex.Store({
   state: {
     loadedMeetups: [
     ],
-    
+
     //user: null,
-    
+
     user: {
       id: 'adlafakd',
       registeredMeetups: ['utown']
@@ -70,10 +70,10 @@ export const store = new Vuex.Store({
       commit('setLoading', true)
       const user = getters.user
       firebase.database().ref('/user/' + user.id).child('/registrations/').push(payload)
-      .then(data => {
-        commit('setLoading', false)
-        commit('registerUserForMeetup', {id: payload, fbKey: data.key})
-      })
+        .then(data => {
+          commit('setLoading', false)
+          commit('registerUserForMeetup', {id: payload, fbKey: data.key})
+        })
         .catch(error => {
           console.log(error)
           commit('setLoading', false)
@@ -87,15 +87,15 @@ export const store = new Vuex.Store({
       }
       const fbKey = user.fbKeys[payload]
       firebase.database().ref('/users/' + user.id + '/registrations/').child(fbKey)
-      .remove()
-      .then(() => {
-        commit('setLoading', false)
-        commit('unregisterUserForMeetup', payload)
-      })
-      .catch(error => {
-        console.log(error)
-        commit('setLoading', false)
-      })
+        .remove()
+        .then(() => {
+          commit('setLoading', false)
+          commit('unregisterUserForMeetup', payload)
+        })
+        .catch(error => {
+          console.log(error)
+          commit('setLoading', false)
+        })
     },
     signUserUp ({commit}, payload) {
       commit('setLoading', true)
@@ -179,6 +179,8 @@ export const store = new Vuex.Store({
               title: obj[key].title,
               location: obj[key].location,
               description: obj[key].description,
+              organiser: obj[key].organiser,
+              participants: obj[key].participants,
               imageUrl: obj[key].imageUrl,
               date: obj[key].date
             })
