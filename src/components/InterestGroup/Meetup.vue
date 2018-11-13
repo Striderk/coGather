@@ -27,15 +27,16 @@
           <v-card-text>
             <v-layout row wrap>
               <v-flex xs8>
-                <div>Details: {{meetup.description}}</div>
-                <div> Time: {{ meetup.date }} </div>
+                <div>Details    :  {{meetup.description}}</div>
+                <div> Time    :   {{ meetup.date }} </div>
                 <div><app-edit-date-dialog :meetup="meetup" ></app-edit-date-dialog></div>
-                <div> Location: {{ meetup.location }} </div>
-                <div>Organiser: {{meetup.organiser}}</div>
-                <div class="d-flex">Ratings: <span><v-rating v-model="rating" background-color="orange lighten-3"
+                <div> Location    :    {{ meetup.location }} </div>
+                <div>Organiser    :    {{meetup.organiser}}</div>
+                <div>Proficiency Requirements    :    {{meetup.proficiency}}</div>
+                <div class="d-flex">Ratings    :    <span><v-rating v-model="rating" background-color="orange lighten-3"
                                                              color="orange" size="16" dense readonly></v-rating></span>
                 </div>
-                <div> Partipants:
+                <div> Partipants    :
                   <v-avatar
                     slot="activator"
                     size="25px"
