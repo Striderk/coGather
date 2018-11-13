@@ -16,7 +16,7 @@
         <div class="display-1">Savanna Du</div>
         <div class="grey--text mt-2">
           <v-icon small>email</v-icon>
-          <span class="ml-1">sadudu.gmail.com</span>
+          <span class="ml-1">sadudu@gmail.com</span>
         </div>
         <div class="grey--text">
           <v-icon small>phone</v-icon>
