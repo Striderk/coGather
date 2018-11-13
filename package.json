@@ -1,7 +1,7 @@
 {
-  "name": "interest-group",
+  "name": "coGather",
   "version": "1.0.0",
-  "description": "interest group platform application",
+  "description": "coGather platform application",
   "author": "IS5003 group ACE",
   "private": true,
   "scripts": {

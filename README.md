@@ -1,6 +1,6 @@
-# interest-group
+# coGather
 
-> interest group platform application
+> coGather platform application
 
 ## Build Setup
 
